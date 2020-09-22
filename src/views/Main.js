@@ -11,7 +11,7 @@ export default () => {
     const generateArray = () => {
         let arr = [];
         for (let i=0; i<70; i++) {
-            let randNum = Math.floor(Math.random(10) * Math.floor(100))
+            let randNum = Math.floor(Math.random() * (100 - 5) + 5)
             arr.push(randNum)
         }
         setArray(arr)
