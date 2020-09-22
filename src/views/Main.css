@@ -1,5 +1,16 @@
+.logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color:#f7f8fa;
+}
+
+.logo {
+    margin: 20px 0px 20px 0px;
+    width: 370px;
+}
+
 #array-container {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -10,4 +21,12 @@
 .array-bar {
     width: 20px;
     margin: 0px 1px 0px 1px;
+}
+
+.controls {
+    background-color: #f7f8fa;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

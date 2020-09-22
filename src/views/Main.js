@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Main from '../views/Main.css'
+import logo from '../images/logo.png'
+
 import { getMergeSortAnimations } from '../algorithms/mergeSort'
 import { getBubbleSortAnimations } from "../algorithms/bubbleSort";
 import { doBubbleSort } from "../algorithms/bubbleSort";
@@ -14,14 +16,14 @@ const ANIMATION_SPEED_MS = 10;
 const NUMBER_OF_ARRAY_BARS = 200;
 
 // This is the main color of the array bars.
-const PRIMARY_COLOR = 'red';
+const PRIMARY_COLOR = '#ff5757';
 
 // This is the color of array bars that are being compared throughout the animations.
-const SECONDARY_COLOR = 'blue';
+const SECONDARY_COLOR = '#002f6d';
 
 export default () => {
     const [array, setArray] = useState([])
-    const [barNum, setBarNum] = useState(100)
+    const [barNum, setBarNum] = useState(50)
     const [sortSpeed, setSortSpeed] = useState(5)
 
     useEffect(() => {
@@ -40,7 +42,7 @@ export default () => {
         var arrayLength = arrayBars.length;
         for (let j = 0; j < arrayLength; j++) {
             var jBarStyle = arrayBars[j].style;
-            jBarStyle.backgroundColor = "red";
+            jBarStyle.backgroundColor = PRIMARY_COLOR;
         }
     }
 
@@ -113,13 +115,13 @@ export default () => {
                 oldBarStyle.height = `${arr[oldPosition]}px`;
                 newBarStyle.height = `${arr[newPosition]}px`;
 
-                oldBarStyle.backgroundColor = "red";
-                newBarStyle.backgroundColor = "blue";
+                oldBarStyle.backgroundColor = PRIMARY_COLOR;
+                newBarStyle.backgroundColor = SECONDARY_COLOR;
 
                 var currentPosition = oldPosition;
                 for (let j = 0; j < currentPosition; j++) {
                     var jBarStyle = arrayBars[j].style;
-                    jBarStyle.backgroundColor = "blue";
+                    jBarStyle.backgroundColor = SECONDARY_COLOR;
                 }
                 if (i === animations.length - 1) {
                     makeAllBarsGreen();
@@ -149,13 +151,13 @@ export default () => {
                 oldBarStyle.height = `${arr[oldPosition]}px`;
                 newBarStyle.height = `${arr[newPosition]}px`;
 
-                oldBarStyle.backgroundColor = "red";
-                newBarStyle.backgroundColor = "blue";
+                oldBarStyle.backgroundColor = PRIMARY_COLOR;
+                newBarStyle.backgroundColor = SECONDARY_COLOR;
 
                 var currentPosition = oldPosition;
                 for (let j = 0; j < currentPosition; j++) {
                     var jBarStyle = arrayBars[j].style;
-                    jBarStyle.backgroundColor = "red";
+                    jBarStyle.backgroundColor = PRIMARY_COLOR;
                 }
                 if (i === animations.length - 1) {
                     makeAllBarsGreen();
@@ -171,13 +173,15 @@ export default () => {
         var arrayLength = arrayBars.length;
         for (let j = 0; j < arrayLength; j++) {
             var jBarStyle = arrayBars[j].style;
-            jBarStyle.backgroundColor = "green";
+            jBarStyle.backgroundColor = "#00c2cb";
         }
     }
 
     return (
         <div>
-            <h1>Sorting Visualizer</h1>
+            <div className="logo-container">
+                <img src={logo} alt="" className="logo"/>
+            </div>
             <div id="array-container">
                 {
                     array.map((number, i) =>
@@ -193,21 +197,30 @@ export default () => {
                 }
             </div>
             <div>
-                <button onClick={e => generateArray()}>Generate New Array</button>
-                <button onClick={e => reloadPage()}>Reset</button>
-                <div className="array-size">
-                    <label>Array Size: </label>
-                    <input type="range" value={barNum} min="50" max="200" step="50" onChange={e => setBarNum(e.target.value)} />
-                    <span>{barNum}</span>
+
+                <div className="controls">
+                    <div className="resets">
+                        <button onClick={e => generateArray()}>Generate New Array</button>
+                        <button onClick={e => reloadPage()}>Reset</button>
+                    </div>
+                    <div className="sliders">
+                        <div className="array-size">
+                            <label>Array Size: </label>
+                            <input type="range" value={barNum} min="50" max="200" step="50" onChange={e => setBarNum(e.target.value)} />
+                            <span>{barNum}</span>
+                        </div>
+                        <div className="sort-speed">
+                            <label>Sort Speed: </label>
+                            <input type="range" value={sortSpeed} min="5" max="20" step="5" onChange={e => setSortSpeed(e.target.value)} />
+                            <span>{sortSpeed}ms</span>
+                        </div>
+                    </div>
+                    <div className="sorts">
+                        <button onClick={e => mergeSort()}>Merge Sort</button>
+                        <button onClick={e => quickSort()}>Quick Sort</button>
+                        <button onClick={e => bubbleSort()}>Bubble Sort</button>
+                    </div>
                 </div>
-                <div className="sort-speed">
-                    <label>Sort Speed: </label>
-                    <input type="range" value={sortSpeed} min="5" max="20" step="5" onChange={e => setSortSpeed(e.target.value)} />
-                    <span>{sortSpeed}ms</span>
-                </div>
-                <button onClick={e => mergeSort()}>Merge Sort</button>
-                <button onClick={e => quickSort()}>Quick Sort</button>
-                <button onClick={e => bubbleSort()}>Bubble Sort</button>
             </div>
         </div>
     )
