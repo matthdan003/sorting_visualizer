@@ -1,12 +1,13 @@
-#graph {
+#array-container {
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 450px;
+    max-width: 1200px;
+    margin: 0px auto;
 }
-.bars {
-    background-color: red;
-    width: 10px;
+.array-bar {
+    width: 20px;
     margin: 0px 1px 0px 1px;
 }
