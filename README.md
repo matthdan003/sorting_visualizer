@@ -6,5 +6,9 @@
 - Bubble Sort
 
 ### Features
-- This project was built with React native
-- Features ability to change array size and sorting speed
+- Array length from 50 - 200
+- Change array size and sorting speed
+- Generate a new random array
+
+### Built with
+- React native
