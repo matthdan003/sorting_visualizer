@@ -27,6 +27,7 @@ export default () => {
     const [sortSpeed, setSortSpeed] = useState(5)
 
     useEffect(() => {
+        document.title = "Sorting Visualizer";
         generateArray();
     }, [barNum])
 
