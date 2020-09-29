@@ -199,7 +199,7 @@ export default () => {
             </div>
             <div>
 
-                <div className="controls">
+                <div id="controls">
                     <div className="resets">
                         <button onClick={e => generateArray()}>Generate New Array</button>
                         <button onClick={e => reloadPage()}>Reset</button>
@@ -207,7 +207,7 @@ export default () => {
                     <div className="sliders">
                         <div className="array-size">
                             <label>Array Size: </label>
-                            <input type="range" value={barNum} min="50" max="200" step="50" onChange={e => setBarNum(e.target.value)} />
+                            <input type="range" value={barNum} min="10" max="200" step="10" onChange={e => setBarNum(e.target.value)} />
                             <span>{barNum}</span>
                         </div>
                         <div className="sort-speed">
@@ -221,6 +221,9 @@ export default () => {
                         <button onClick={e => quickSort()}>Quick Sort</button>
                         <button onClick={e => bubbleSort()}>Bubble Sort</button>
                     </div>
+                </div>
+                <div id="footer">
+                    Created by Daniel Matthew &#169; 2020
                 </div>
             </div>
         </div>
