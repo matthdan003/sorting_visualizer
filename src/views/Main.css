@@ -9,6 +9,7 @@ html,body {
     background-color:#f7f8fa;
     /* border-bottom: 2px solid rgb(6, 42, 94); */
     box-shadow: 0px 1px 15px 1px grey;
+    position: relative;
 }
 
 .logo {
@@ -21,8 +22,18 @@ html,body {
     justify-content: center;
     align-items: flex-end;
     height: 450px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0px auto;
+
+    --stripe: #ffffff;
+    --bg: #f1f1f1;
+
+    background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+    linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: var(--stripe);
 }
 .array-bar {
     width: 70px;

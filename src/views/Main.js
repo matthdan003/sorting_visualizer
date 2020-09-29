@@ -201,8 +201,8 @@ export default () => {
 
                 <div id="controls">
                     <div className="resets">
-                        <button onClick={e => generateArray()}>Generate New Array</button>
                         <button onClick={e => reloadPage()}>Reset</button>
+                        <button onClick={e => generateArray()}>Generate New Array</button>
                     </div>
                     <div className="sliders">
                         <div className="array-size">
