@@ -4,7 +4,7 @@ import logo from '../images/logo.png'
 
 import { getMergeSortAnimations } from '../algorithms/mergeSort'
 import { getBubbleSortAnimations } from "../algorithms/bubbleSort";
-import { doBubbleSort } from "../algorithms/bubbleSort";
+// import { doBubbleSort } from "../algorithms/bubbleSort";
 import { getQuickSortAnimations } from "../algorithms/quickSort";
 import { doQuickSort } from "../algorithms/quickSort";
 import { quickSortPartition } from "../algorithms/quickSort";
